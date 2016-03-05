@@ -17,6 +17,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
 
         pageStyle()
+        
+        initColors()
 
         dataSource = self
         initializeViewControllers()
@@ -44,6 +46,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
                 view = instagram(id)
             case "twitter":
                 view = twitter(id)
+            case "linkedin":
+                view = linkedin(id)
             default:
                 view = WebViewController()
             }
@@ -89,6 +93,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         return firstViewControllerIndex
     }
     
+    func initColors() {
+        self.view.backgroundColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
+    }
+    
     func facebook(id: String) -> WebViewController {
         let viewController = WebViewController()
         
@@ -117,6 +125,18 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         let viewController = WebViewController()
         
         if let url = NSURL(string: "https://www.twitter.com/" + id) {
+            viewController.url = url
+        }
+        viewController.webView?.loadRequest(NSURLRequest(URL: viewController.url))
+        viewController.webView?.allowsBackForwardNavigationGestures = false
+        
+        return viewController
+    }
+    
+    func linkedin(id: String) -> WebViewController {
+        let viewController = WebViewController()
+        
+        if let url = NSURL(string: "https://www.linkedin.com/in/" + id) {
             viewController.url = url
         }
         viewController.webView?.loadRequest(NSURLRequest(URL: viewController.url))

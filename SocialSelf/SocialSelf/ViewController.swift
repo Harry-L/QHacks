@@ -15,6 +15,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    var accounts = [(String, String)]()
+    var possibleAccounts = ["facebook", "instagram", "twitter", "linkedin"]
+    
+    @IBOutlet weak var qrCode: UIImageView!
+    @IBOutlet weak var button: UIButton!
     
     @IBAction func buttonPress(sender: AnyObject) {
         initializingCapture()
@@ -23,16 +28,46 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
-        captureSession?.startRunning()
-        qrCodeFrameView?.frame = CGRectZero
+        layoutFix()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.edgesForExtendedLayout = UIRectEdge.None
         initColors()
+        tapGestureRecognizer()
+    }
+    
+    func tapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("qrTapped"))
+        qrCode.userInteractionEnabled = true
+        qrCode.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func layoutFix() {
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
+        //view.bringSubviewToFront(qrCode)
+        //view.bringSubviewToFront(button)
+        //captureSession?.delete(self)
+        //qrCodeFrameView?.removeFromSuperview()
+        //videoPreviewLayer?.delete(self)
+        captureSession?.startRunning()
+        qrCodeFrameView?.frame = CGRectZero
+    }
+    
+    func qrTapped() {
+        if (qrCode.alpha == 1) {
+            UIView.animateWithDuration(0.4, animations: {
+                self.qrCode.alpha = 0.0
+                }, completion: nil)
+            self.button.hidden = false
+        }
+        else {
+            UIView.animateWithDuration(0.4, animations: {
+                self.qrCode.alpha = 1
+                }, completion: nil)
+            self.button.hidden = true
+        }
     }
     
     func initColors() {
@@ -40,6 +75,21 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         navigationController!.navigationBar.tintColor = UIColor.whiteColor()
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.translucent = false
+        
+        self.view.backgroundColor = UIColor.init(red: 56.0/255.0, green: 87.0/255.0, blue: 151.0/255.0, alpha: 1)
+        self.edgesForExtendedLayout = UIRectEdge.None
+    }
+    
+    func grabAccounts(text: String) {
+        let arr = text.characters.split{$0 == "/"}.map(String.init)
+        
+        var index = 0;
+        for s in arr {
+            if (s != "#f"){
+                accounts.append((possibleAccounts[index], s))
+            }
+            index++
+        }
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
@@ -57,6 +107,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             if metadataObj.stringValue != nil {
                 print(metadataObj.stringValue)
                 captureSession?.stopRunning()
+                grabAccounts(metadataObj.stringValue)
                 performSegueWithIdentifier("next", sender: self)
             }
         }
@@ -64,6 +115,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     func initializingFrame() {
         qrCodeFrameView = UIView()
+        qrCodeFrameView?.tag = 100
         qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
         qrCodeFrameView?.layer.borderWidth = 2
         view.addSubview(qrCodeFrameView!)
@@ -105,7 +157,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "next" {
             let destination = segue.destinationViewController as! PageViewController
-            destination.accounts = [("facebook", "BoshenBoss"), ("instagram", "harry_liu_"), ("twitter", "therock")]
+            print(accounts)
+            destination.accounts = accounts
             
         }
     }

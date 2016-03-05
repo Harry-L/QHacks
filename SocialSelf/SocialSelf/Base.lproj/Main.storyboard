@@ -17,8 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-uj-LCV">
-                                <rect key="frame" x="250" y="285" width="100" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfqrcode" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-Rr-WS2">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-uj-LCV">
+                                <rect key="frame" x="233" y="282" width="135" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Scan QR Code"/>
                                 <connections>
                                     <action selector="buttonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gJQ-8J-bbP"/>
@@ -27,8 +31,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="z1s-uj-LCV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FKT-tZ-REh"/>
-                            <constraint firstItem="z1s-uj-LCV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XW3-di-aW4"/>
+                            <constraint firstItem="EjM-Rr-WS2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="84k-gw-Tdg"/>
+                            <constraint firstItem="EjM-Rr-WS2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fLa-38-YIW"/>
+                            <constraint firstItem="z1s-uj-LCV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uyK-9q-Y4j"/>
+                            <constraint firstItem="z1s-uj-LCV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yuh-WO-ylg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Social Self" id="D54-Xl-l7d">
@@ -36,6 +42,8 @@
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="button" destination="z1s-uj-LCV" id="Bjq-aW-5Pl"/>
+                        <outlet property="qrCode" destination="EjM-Rr-WS2" id="u6u-Al-eBC"/>
                         <segue destination="3xP-MC-I1o" kind="show" identifier="next" id="pSO-HY-rqH"/>
                     </connections>
                 </viewController>
@@ -90,4 +98,7 @@
             <point key="canvasLocation" x="1117" y="362"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="selfqrcode" width="200" height="200"/>
+    </resources>
 </document>
