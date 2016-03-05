@@ -15,12 +15,17 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         pageStyle()
 
         dataSource = self
         initializeViewControllers()
         setFirstViewController()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
     }
     
     func setFirstViewController() {
@@ -126,10 +131,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         //pageControl.currentPageIndicatorTintColor = UIColor.whiteColor()
         //pageControl.pageIndicatorTintColor = UIColor.blackColor()
         pageControl.backgroundColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
+        self.navigationController!.interactivePopGestureRecognizer!.enabled = false
     }
     
     /*

@@ -23,6 +23,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
         captureSession?.startRunning()
         qrCodeFrameView?.frame = CGRectZero
     }
@@ -31,10 +32,14 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.edgesForExtendedLayout = UIRectEdge.None
+        initColors()
     }
     
     func initColors() {
-        //self.navigationController?.navigationBar.
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 201.0/255.0, green: 34.0/255.0, blue: 40.0/255.0, alpha: 1)
+        navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.translucent = false
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
