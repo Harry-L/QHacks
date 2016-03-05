@@ -88,8 +88,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "next" {
-            let destination = segue.destinationViewController as! WebViewController
-            destination.id = "BoshenBoss"
+            let destination = segue.destinationViewController as! PageViewController
+            destination.accounts = [("facebook", "BoshenBoss"), ("instagram", "harry_liu_")]
         }
     }
 

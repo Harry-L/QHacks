@@ -17,7 +17,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
 
         dataSource = self
-        
+        initializeViewControllers()
+        setFirstViewController()
+    }
+    
+    func setFirstViewController() {
+        if let firstViewController = orderedViewControllers.first {
+            setViewControllers([firstViewController], direction: .Forward, animated: true, completion: nil)
+        }
     }
     
     func initializeViewControllers() {
@@ -60,13 +67,27 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     }
     
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return orderedViewControllers.count
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        guard let firstViewController = viewControllers?.first,
+            firstViewControllerIndex = orderedViewControllers.indexOf(firstViewController) else {
+                return 0
+        }
+        
+        return firstViewControllerIndex
+    }
+    
     func facebook(id: String) -> WebViewController {
         let viewController = WebViewController()
         
-        
-        viewController.url = NSURL(string: "https://www.facebook.com/addfriend.php?id=" + id)!
-        viewController.webView.loadRequest(NSURLRequest(URL: viewController.url))
-        viewController.webView.allowsBackForwardNavigationGestures = false
+        if let url = NSURL(string: "https://www.facebook.com/addfriend.php?id=" + id) {
+            viewController.url = url
+        }
+        viewController.webView?.loadRequest(NSURLRequest(URL: viewController.url))
+        viewController.webView?.allowsBackForwardNavigationGestures = false
         
         return viewController
     }
@@ -74,9 +95,11 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     func instagram(id: String) -> WebViewController {
         let viewController = WebViewController()
         
-        viewController.url = NSURL(string: "https://wwww.instagram.com/user?username=" + id)!
-        viewController.webView.loadRequest(NSURLRequest(URL: viewController.url))
-        viewController.webView.allowsBackForwardNavigationGestures = false
+        if let url = NSURL(string: "https://www.instagram.com/" + id) {
+            viewController.url = url
+        }
+        viewController.webView?.loadRequest(NSURLRequest(URL: viewController.url))
+        viewController.webView?.allowsBackForwardNavigationGestures = false
             
         return viewController
     }
