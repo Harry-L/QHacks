@@ -12,27 +12,15 @@ import WebKit
 class WebViewController: ViewController, WKNavigationDelegate {
     
     var webView: WKWebView!
-    var id: String?
+    var url: NSURL!
     
-    override func viewDidLoad() {
-        print("Facebook")
-        facebook()
-    }
-    
-    override func loadView() {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         webView = WKWebView()
         view = webView
     }
-    
-    func facebook() {
-        if (id != nil) {
-            let url = NSURL(string: "https://www.facebook.com/addfriend.php?id=" + id!)!
-            
-            webView.loadRequest(NSURLRequest(URL: url))
-            webView.allowsBackForwardNavigationGestures = false
-        }
-        else {
-            print("id is null")
-        }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

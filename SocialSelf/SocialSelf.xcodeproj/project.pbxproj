@@ -13,6 +13,7 @@
 		4A16782E1C8AADEA00CEEA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A16782D1C8AADEA00CEEA26 /* Assets.xcassets */; };
 		4A1678311C8AADEA00CEEA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A16782F1C8AADEA00CEEA26 /* LaunchScreen.storyboard */; };
 		4A1678391C8ADA2700CEEA26 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1678381C8ADA2700CEEA26 /* WebViewController.swift */; };
+		4A1678631C8B39A800CEEA26 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1678621C8B39A800CEEA26 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4A1678301C8AADEA00CEEA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A1678321C8AADEA00CEEA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1678381C8ADA2700CEEA26 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		4A1678621C8B39A800CEEA26 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				4A16782F1C8AADEA00CEEA26 /* LaunchScreen.storyboard */,
 				4A1678321C8AADEA00CEEA26 /* Info.plist */,
 				4A1678381C8ADA2700CEEA26 /* WebViewController.swift */,
+				4A1678621C8B39A800CEEA26 /* PageViewController.swift */,
 			);
 			path = SocialSelf;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				4A1678291C8AADEA00CEEA26 /* ViewController.swift in Sources */,
 				4A1678271C8AADEA00CEEA26 /* AppDelegate.swift in Sources */,
 				4A1678391C8ADA2700CEEA26 /* WebViewController.swift in Sources */,
+				4A1678631C8B39A800CEEA26 /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +262,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.socialself.SocialSelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -269,6 +274,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.socialself.SocialSelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -291,6 +297,7 @@
 				4A1678371C8AADEA00CEEA26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
