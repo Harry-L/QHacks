@@ -21,9 +21,20 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         initializingFrame()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        captureSession?.startRunning()
+        qrCodeFrameView?.frame = CGRectZero
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.edgesForExtendedLayout = UIRectEdge.None
+    }
+    
+    func initColors() {
+        //self.navigationController?.navigationBar.
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
@@ -89,7 +100,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "next" {
             let destination = segue.destinationViewController as! PageViewController
-            destination.accounts = [("facebook", "BoshenBoss"), ("instagram", "harry_liu_")]
+            destination.accounts = [("facebook", "BoshenBoss"), ("instagram", "harry_liu_"), ("twitter", "therock")]
+            
         }
     }
 

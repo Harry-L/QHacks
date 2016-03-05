@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yQr-gB-VIp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -32,21 +32,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Social Self" id="D54-Xl-l7d"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <segue destination="3xP-MC-I1o" kind="show" identifier="next" id="pSO-HY-rqH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="362"/>
+            <point key="canvasLocation" x="1929" y="362"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="xpQ-9R-xnZ">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3xP-MC-I1o" customClass="PageViewController" customModule="SocialSelf" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3xP-MC-I1o" customClass="PageViewController" customModule="SocialSelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZs-03-NeX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1827" y="362"/>
+            <point key="canvasLocation" x="2639" y="362"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uBN-jp-jd1">
@@ -64,7 +67,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fra-DS-GuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="362"/>
+            <point key="canvasLocation" x="3331" y="362"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="t12-Pd-wiz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yQr-gB-VIp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1fi-jq-7as">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gyk-8a-h9W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IKM-pr-5Fq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="362"/>
         </scene>
     </scenes>
 </document>

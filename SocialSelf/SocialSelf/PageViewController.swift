@@ -15,6 +15,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pageStyle()
 
         dataSource = self
         initializeViewControllers()
@@ -35,6 +37,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
                 view = facebook(id)
             case "instagram":
                 view = instagram(id)
+            case "twitter":
+                view = twitter(id)
             default:
                 view = WebViewController()
             }
@@ -102,6 +106,30 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         viewController.webView?.allowsBackForwardNavigationGestures = false
             
         return viewController
+    }
+    
+    func twitter(id: String) -> WebViewController {
+        let viewController = WebViewController()
+        
+        if let url = NSURL(string: "https://www.twitter.com/" + id) {
+            viewController.url = url
+        }
+        viewController.webView?.loadRequest(NSURLRequest(URL: viewController.url))
+        viewController.webView?.allowsBackForwardNavigationGestures = false
+        
+        return viewController
+    }
+    
+    func pageStyle() {
+        let pageControl = UIPageControl.appearanceWhenContainedInInstancesOfClasses([self.dynamicType])
+        
+        //pageControl.currentPageIndicatorTintColor = UIColor.whiteColor()
+        //pageControl.pageIndicatorTintColor = UIColor.blackColor()
+        pageControl.backgroundColor = UIColor.init(red: 63.0/255.0, green: 63.0/255.0, blue: 63.0/255.0, alpha: 1)
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     /*
