@@ -1,16 +1,8 @@
-Structure
+Social Self: Social Media Aggregation - Harry Liu, Boshen Cui, Mus Ismail, Marco Ly
 
-Front-end
+Social Self is a website and iOS application pair designed to make socializing an easier experience.
 
-- website using Bootstrap with a social network login authenticator (Facebook and Google)
-- form that has a list of available social network accounts that you can integrate
-- SQL and Microsoft Azure 
-- backend for pushing to Microsoft Azure
-- backend for form generation? 
-- QR Code image 
+Social networks have become increasingly prolific. The number of widely used social media platforms has been growing in recent years. Because of the lack of integration between social networking platforms, adding a person on multiple social media outlets remains a time consuming task. Making friends and meeting new people should not be this difficult. 
 
-App
+Social Self is a hub for social media. Simply sign up on socialself.net with your facebook account, and add your ID for your social media accounts. It will generate a QR code, which you can port to the iOS application, which when scanned within the app, will prompt the user with a scrolling page view with all of the available social media accounts. Easy. 
 
-- camera that scans a QR code 
-- asks for access to all social network accounts 
-- iteratively adds person on all accounts 

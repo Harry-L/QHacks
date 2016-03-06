@@ -85,9 +85,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         let arr = text.characters.split{$0 == "/"}.map(String.init)
         accounts.removeAll()
         
+        if arr.count > possibleAccounts.count {
+            return;
+        }
+        
         var index = 0;
         for s in arr {
-            if (s != "%23f"){
+            if (s != "#f"){
                 accounts.append((possibleAccounts[index], s))
             }
             index++
@@ -108,9 +112,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             
             if metadataObj.stringValue != nil {
                 print(metadataObj.stringValue)
-                captureSession?.stopRunning()
                 grabAccounts(metadataObj.stringValue)
-                performSegueWithIdentifier("next", sender: self)
+                if accounts.count > 0 {
+                    captureSession?.stopRunning()
+                    performSegueWithIdentifier("next", sender: self)
+                }
             }
         }
     }
