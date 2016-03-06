@@ -29,6 +29,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         layoutFix()
+        
     }
     
     override func viewDidLoad() {
@@ -76,16 +77,17 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.translucent = false
         
-        self.view.backgroundColor = UIColor.init(red: 56.0/255.0, green: 87.0/255.0, blue: 151.0/255.0, alpha: 1)
+        self.view.backgroundColor = UIColor.init(red: 0.0/255.0, green: 102.0/255.0, blue: 153.0/255.0, alpha: 1)
         self.edgesForExtendedLayout = UIRectEdge.None
     }
     
     func grabAccounts(text: String) {
         let arr = text.characters.split{$0 == "/"}.map(String.init)
+        accounts.removeAll()
         
         var index = 0;
         for s in arr {
-            if (s != "#f"){
+            if (s != "%23f"){
                 accounts.append((possibleAccounts[index], s))
             }
             index++

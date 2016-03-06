@@ -14,6 +14,7 @@
 		4A1678311C8AADEA00CEEA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A16782F1C8AADEA00CEEA26 /* LaunchScreen.storyboard */; };
 		4A1678391C8ADA2700CEEA26 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1678381C8ADA2700CEEA26 /* WebViewController.swift */; };
 		4A1678631C8B39A800CEEA26 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1678621C8B39A800CEEA26 /* PageViewController.swift */; };
+		4A1678651C8BE98C00CEEA26 /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1678641C8BE96600CEEA26 /* BebasNeue.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4A1678321C8AADEA00CEEA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1678381C8ADA2700CEEA26 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		4A1678621C8B39A800CEEA26 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		4A1678641C8BE96600CEEA26 /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				4A1678321C8AADEA00CEEA26 /* Info.plist */,
 				4A1678381C8ADA2700CEEA26 /* WebViewController.swift */,
 				4A1678621C8B39A800CEEA26 /* PageViewController.swift */,
+				4A1678641C8BE96600CEEA26 /* BebasNeue.otf */,
 			);
 			path = SocialSelf;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			files = (
 				4A1678311C8AADEA00CEEA26 /* LaunchScreen.storyboard in Resources */,
 				4A16782E1C8AADEA00CEEA26 /* Assets.xcassets in Resources */,
+				4A1678651C8BE98C00CEEA26 /* BebasNeue.otf in Resources */,
 				4A16782C1C8AADEA00CEEA26 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SocialSelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.socialself.SocialSelf;
@@ -270,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SocialSelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.socialself.SocialSelf;

@@ -23,6 +23,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         dataSource = self
         initializeViewControllers()
         setFirstViewController()
+        initColors()
     }
     
     override func viewDidAppear(animated: Bool) {

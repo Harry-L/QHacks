@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="BebasNeue.otf">
+            <string>BebasNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Social Self-->
         <scene sceneID="tne-QT-ifu">
@@ -17,17 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfqrcode" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-Rr-WS2">
-                                <rect key="frame" x="200" y="200" width="200" height="200"/>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1s-uj-LCV">
-                                <rect key="frame" x="233" y="282" width="135" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <rect key="frame" x="198" y="265" width="205" height="70"/>
+                                <fontDescription key="fontDescription" name="BebasNeue" family="Bebas Neue" pointSize="48"/>
                                 <state key="normal" title="Scan QR Code"/>
                                 <connections>
                                     <action selector="buttonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gJQ-8J-bbP"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selfqrcode" translatesAutoresizingMaskIntoConstraints="NO" id="EjM-Rr-WS2">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
